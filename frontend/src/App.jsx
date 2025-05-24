@@ -20,8 +20,8 @@ import { Toaster } from "react-hot-toast"
 function App() {
   const { authUser, checkAuth, isCheckingAuth, onlineUsers } = useAuthStore()
 
-console.log({ onlineUsers });
-  
+  console.log({ onlineUsers });
+
   const { theme } = useThemeStore();
   useEffect(() => {
     checkAuth()
@@ -37,19 +37,19 @@ console.log({ onlineUsers });
 
   return (
     <div data-theme={theme}>
-        <Router>
-          <Navbar />
+      <Router>
+        <Navbar />
 
-          <Routes>
-            <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
-            <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
-            <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
-            <Route path="/settings" element={<SettingsPage />} />
-            <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
-          </Routes>
-        </Router>
-        <Toaster />
-      
+        <Routes>
+          <Route path="/" element={authUser ? <HomePage /> : <Navigate to="/login" />} />
+          <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to="/" />} />
+          <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to="/" />} />
+          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/profile" element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+        </Routes>
+      </Router>
+      <Toaster />
+
     </div>
   );
 }
