@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow frontend origin
+    origin: "https://fullstack-chat-app-frontend3.onrender.com", // Allow frontend origin
     credentials: true, // Allow cookies to be sent
   })
 );
